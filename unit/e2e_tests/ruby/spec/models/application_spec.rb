@@ -18,9 +18,11 @@ RSpec.describe 'Application' do
 
 
     it 'should upload a document for the application' do
+      opts = {
+        file_type: 'pdf'
+      }
       api_instance = OpenapiClient::UploadADocumentForAnApplicationApi.new(client)
-      request = api_instance.execute("836683", "125214", get_document_contents)
-
+      request = api_instance.execute("836683", "125214", get_document_contents, opts)
       expect(request.data.type).to eq("document")
     end
 
